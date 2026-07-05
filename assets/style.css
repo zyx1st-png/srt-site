@@ -298,6 +298,14 @@ details.endnote .en-body p{font-size:14.5px;line-height:2;color:var(--ink-soft);
 .cmp-srt span{background:rgba(58,122,110,.14);color:var(--ret-deep)}
 .cmp-dec{font-size:14px;color:var(--ink-soft);border-top:1px dashed var(--line);padding-top:12px}
 .cmp-dec span{background:rgba(169,112,54,.14);color:var(--stay-deep)}
+.theses{display:grid;gap:16px;margin-top:12px}
+.thesis{display:grid;grid-template-columns:auto 1fr;gap:18px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px 22px;box-shadow:var(--shadow)}
+.th-n{font-family:ui-serif,Georgia,"Songti SC",serif;font-weight:700;font-size:30px;color:var(--stay);line-height:1;width:38px;text-align:center;padding-top:2px}
+.th-body h3{margin:0 0 8px;font-size:19px}
+.th-claim{margin:0 0 12px;font-size:15px;line-height:1.8;color:var(--ink)}
+.th-bound{margin:0;font-size:13px;color:var(--ink-soft);line-height:1.7;padding-top:10px;border-top:1px dashed var(--line)}
+.th-bound span{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.12em;color:var(--stay-deep);border:1px solid rgba(169,112,54,.4);border-radius:999px;padding:2px 8px;margin-right:8px;text-transform:uppercase}
+.map-table td.t-not{color:var(--stay-deep);font-size:13px}
 .ifaces{display:flex;flex-wrap:wrap;gap:10px}
 .ifaces span{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--ink-soft);background:var(--paper2);border:1px solid var(--line);border-radius:10px;padding:8px 14px}
 .dbound{margin:0;font-size:13px;color:var(--ink-soft);line-height:1.7;padding-top:14px;border-top:1px dashed var(--line)}
