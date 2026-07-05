@@ -1,4 +1,15 @@
 
+// 移动端导航汉堡
+const navToggle=document.querySelector('.navtoggle');
+const topNav=document.querySelector('.topnav');
+if(navToggle&&topNav){
+  navToggle.addEventListener('click',()=>{
+    const open=topNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded',open?'true':'false');
+    navToggle.textContent=open?'关闭':'菜单';
+  });
+}
+
 // 阅读进度条
 const bar=document.getElementById('progress');
 if(bar){addEventListener('scroll',()=>{const h=document.documentElement;
