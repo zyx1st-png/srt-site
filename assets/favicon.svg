@@ -1,0 +1,13 @@
+<svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+<defs><clipPath id="fc"><circle cx="110" cy="110" r="94"/></clipPath>
+<marker id="fm" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#3A7A6E"/></marker></defs>
+<circle cx="110" cy="110" r="106" fill="#F6F3EB"/>
+<circle cx="110" cy="110" r="97" fill="none" stroke="#868A7B" stroke-width="7"/>
+<g clip-path="url(#fc)">
+<rect x="4" y="126" width="212" height="22" fill="#C9A176"/>
+<rect x="4" y="152" width="212" height="18" fill="#A97036"/>
+<rect x="4" y="174" width="212" height="42" fill="#7C5023"/>
+</g>
+<path d="M72,128 C68,80 118,50 150,74 C172,90 170,114 154,126" fill="none" stroke="#3A7A6E" stroke-width="12" marker-end="url(#fm)" stroke-linecap="round"/>
+<circle cx="72" cy="128" r="10" fill="#7C5023"/>
+</svg>
