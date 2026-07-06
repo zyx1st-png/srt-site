@@ -37,7 +37,11 @@ a{color:inherit}
 .navitem:hover>.navlabel .caret{transform:rotate(180deg)}
 .navpanel{position:absolute;top:calc(100% + 8px);right:0;min-width:230px;background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:0 16px 40px rgba(34,38,31,.14);padding:8px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.16s ease;z-index:60;display:grid;gap:2px}
 .navpanel-wide{min-width:440px;grid-template-columns:1fr 1fr}
-.navitem:hover>.navpanel{opacity:1;visibility:visible;transform:translateY(0)}
+.navitem:hover>.navpanel,.navitem.open>.navpanel,.navitem:focus-within>.navpanel{opacity:1;visibility:visible;transform:translateY(0)}
+.navitem.open>.navlabel .caret,.navitem:focus-within>.navlabel .caret{transform:rotate(180deg)}
+.navlabel{cursor:pointer}
+.navlabel.current,.navlink.current{background:var(--paper3);color:var(--ink);font-weight:600}
+.navpanel a.current{background:rgba(58,122,110,.1);color:var(--ret-deep);font-weight:600}
 .navpanel::before{content:"";position:absolute;top:-8px;left:0;right:0;height:8px}
 .navpanel a{font-size:13.5px;color:var(--ink-soft);text-decoration:none;padding:9px 13px;border-radius:10px;transition:.13s;white-space:nowrap}
 .navpanel a:hover{background:var(--paper3);color:var(--ink)}
@@ -345,6 +349,49 @@ details.endnote .en-body p{font-size:14.5px;line-height:2;color:var(--ink-soft);
 .dbound{margin:0;font-size:13px;color:var(--ink-soft);line-height:1.7;padding-top:14px;border-top:1px dashed var(--line)}
 .dbound span{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.12em;color:var(--dc);border:1px solid var(--dc);border-radius:999px;padding:2px 8px;margin-right:8px;text-transform:uppercase;opacity:.85}
 
+/* ---- 全站搜索 ---- */
+.searchbtn{order:5;display:inline-flex;align-items:center;gap:7px;background:var(--paper3);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-family:inherit;font-size:13px;color:var(--ink-soft);cursor:pointer;transition:.15s;white-space:nowrap;flex-shrink:0}
+.searchbtn:hover{border-color:var(--ink-faint);color:var(--ink);background:var(--panel)}
+.searchbtn svg{width:13px;height:13px;flex-shrink:0}
+.searchbtn kbd{font-family:"JetBrains Mono",monospace;font-size:10px;border:1px solid var(--line);border-radius:5px;padding:1px 5px;background:rgba(255,255,255,.6);color:var(--ink-faint)}
+.search-overlay{position:fixed;inset:0;background:rgba(23,27,22,.45);backdrop-filter:blur(4px);z-index:100;display:flex;align-items:flex-start;justify-content:center;padding:11vh 20px 20px}
+.search-overlay[hidden]{display:none}
+.search-panel{width:100%;max-width:640px;background:var(--panel);border:1px solid var(--line);border-radius:20px;box-shadow:0 30px 80px rgba(15,18,14,.35);overflow:hidden}
+.search-input-row{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line);color:var(--ink-faint)}
+.search-input{flex:1;border:none;outline:none;background:transparent;font-family:inherit;font-size:17px;color:var(--ink);padding:0}
+.search-input::-webkit-search-cancel-button{display:none}
+.search-res{max-height:52vh;overflow:auto;padding:8px;overscroll-behavior:contain}
+.search-res a{display:block;padding:12px 14px;border-radius:12px;text-decoration:none}
+.search-res a.sel{background:var(--paper2)}
+.search-res .rt{font-weight:600;font-size:15px;color:var(--ink);margin-bottom:3px;font-family:ui-serif,Georgia,"Songti SC",serif}
+.search-res .rs{font-size:13px;color:var(--ink-soft);line-height:1.75}
+.search-res mark{background:rgba(169,112,54,.2);color:var(--stay-deep);border-radius:3px;padding:0 1px}
+.search-empty{padding:30px 20px;text-align:center;color:var(--ink-faint);font-size:14px}
+.search-foot{display:flex;gap:18px;justify-content:flex-end;padding:10px 18px;border-top:1px solid var(--line);font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-faint)}
+
+/* ---- 顺读动线 pager ---- */
+.pager{background:var(--paper);border-top:1px solid var(--line)}
+.pager .wrap{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:center;padding:26px 32px}
+.pg{text-decoration:none;display:flex;flex-direction:column;gap:5px;min-width:0}
+.pg span{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--ink-faint)}
+.pg b{font-size:15px;font-weight:600;color:var(--ink);font-family:ui-serif,Georgia,"Songti SC",serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;transition:.15s}
+.pg:hover b{color:var(--ret-deep)}
+.pg.next{align-items:flex-end;text-align:right}
+.pg.mid{flex-direction:row;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink-soft);border:1px solid var(--line);border-radius:999px;padding:7px 16px;white-space:nowrap;transition:.15s}
+.pg.mid:hover{border-color:var(--ret-deep);color:var(--ret-deep)}
+
+/* ---- 回到顶部 ---- */
+.totop{position:fixed;right:22px;bottom:22px;width:44px;height:44px;border-radius:50%;background:var(--panel);border:1px solid var(--line);box-shadow:0 8px 24px rgba(34,38,31,.16);color:var(--ink-soft);cursor:pointer;z-index:70;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transform:translateY(8px);transition:.25s}
+.totop.show{opacity:1;visibility:visible;transform:none}
+.totop:hover{color:var(--ret-deep);border-color:var(--ret-deep)}
+
+/* ---- 可达性与动效偏好 ---- */
+:focus-visible{outline:2px solid var(--ret);outline-offset:2px;border-radius:4px}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+}
+
 @media (max-width:900px){
   .axioms{grid-template-columns:1fr}
   .vocab{grid-template-columns:1fr 1fr}
@@ -362,6 +409,13 @@ details.endnote .en-body p{font-size:14.5px;line-height:2;color:var(--ink-soft);
   body{font-size:16px}
   .wrap,.hero-inner{padding:0 22px}
   .topbar .wrap{padding:10px 18px;gap:10px;flex-wrap:wrap}
+  .searchbtn{order:0;padding:8px 12px}
+  .searchbtn kbd,.searchbtn span{display:none}
+  .pager .wrap{grid-template-columns:1fr 1fr;padding:22px 22px}
+  .pg.mid{grid-column:1/-1;order:3;justify-content:center;text-align:center}
+  .pg b{white-space:normal;font-size:14px}
+  .totop{right:14px;bottom:14px;width:42px;height:42px}
+  .search-overlay{padding:6vh 12px 12px}
   .navtoggle{display:block}
   .topnav{display:none;flex-direction:column;align-items:stretch;width:100%;gap:2px;margin-left:0;padding-top:10px}
   .topnav.open{display:flex}
