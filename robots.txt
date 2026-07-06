@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zyx1st-png.github.io/srt-site/sitemap.xml

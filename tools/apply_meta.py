@@ -46,8 +46,9 @@ DESC = {
     "video.html": "把 SRT 的核心结构做成可看的影像：三层结构、意识与量子、AI 与社会、意义与价值。脚本就位，逐集发布。",
     "papers.html": "书稿改变问题入口，论文承担形式化与实证接口的证明负载。当前在投与在写的稿件，评审约束下逐篇放开全文。",
     "en.html": "Selective Reality Theory (SRT) asks how possibilities become reality — and why reality hardens, thickens, and starts to look as if it had always been there.",
-    "404.html": "页面不存在。回到选择性现实理论首页或全站地图。",
 }
+
+SKIP = {"404.html"}  # 自包含、noindex，不注入元数据块
 
 
 def head_block(rel: str, title: str, desc: str, prefix: str, lang_en: bool) -> str:
@@ -79,6 +80,8 @@ def main() -> int:
     missing = []
     for p in sorted(ROOT.rglob("*.html")):
         rel = p.relative_to(ROOT).as_posix()
+        if rel in SKIP:
+            continue
         if rel not in DESC:
             missing.append(rel)
             continue
