@@ -64,6 +64,11 @@ def main():
     for entry in manifest["entries"]:
         if any(entry["source"].startswith(x) for x in forbidden): errors.append(f"manifest: forbidden source {entry['source']}")
         if not (ROOT/entry["target"]).exists(): errors.append(f"manifest: missing target {entry['target']}")
+    evidence=(ROOT/"evidence.html").read_text(encoding="utf-8")
+    if evidence.count("data-material-card") != 8: errors.append("evidence.html: expected 8 public material cards")
+    if "尚无已接受的证据卡" not in evidence: errors.append("evidence.html: missing draft-evidence boundary")
+    for backstage in ["Operations/", "Material Log", "A 类正文", "B 类延后", "C 类"]:
+        if backstage in evidence: errors.append(f"evidence.html: backstage phrase leaked: {backstage}")
     index=json.loads((ROOT/"assets/search-index.json").read_text())
     indexed={x["u"] for x in index}
     expected=set(pages)-{"404.html"}

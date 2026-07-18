@@ -16,7 +16,7 @@ GROUPS = [
     ("推导与检验", True, [
         ("l2.html", "L₂ 活／死稳定"), ("individuation.html", "个体化"),
         ("collective.html", "集体选择"), ("suffering.html", "苦难的结构"),
-        ("predictions.html", "判别性预测"), ("evidence.html", "证据与未决问题"),
+        ("predictions.html", "判别性预测"), ("evidence.html", "证据与材料"),
         ("research.html", "研究进展"),
     ]),
     ("领域与专题", True, [
@@ -34,8 +34,10 @@ GROUPS = [
 ]
 
 STALE = {
+    "2026-07-18 同步": "2026-07-19 同步",
+    "synced 2026-07-18": "synced 2026-07-19",
     "站点内容为策展导出 · 理论主仓库私有维护 · 书稿 RC1-candidate 评审中":
-        "站点内容为公众导览 · 定义与版本以 SRT-Pub 为准 · 2026-07-18 同步",
+        "站点内容为公众导览 · 定义与版本以 SRT-Pub 为准 · 2026-07-19 同步",
     "五条 P0 原始公理": "四条 P0 原始公理",
     "书稿 · RC1-candidate 评审中": "书稿 · 生成哲学战略总装",
     "序章 + 二十八章 · 五幕": "Q00–Q28 + 两章补章 · 五幕",
