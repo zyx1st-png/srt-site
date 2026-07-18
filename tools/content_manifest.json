@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "source_repository": "https://github.com/zyx1st-png/SRT-Pub",
+  "source_commit": "15161e090b0e167c68c7de8ba9c1d370ecd4905d",
+  "synced_at": "2026-07-18",
+  "public_rules": {
+    "allowed_roles": ["public_release", "public_book_status", "public_research_status", "public_open_tensions"],
+    "forbidden_prefixes": ["Archive_", "Operations/", "memory/", "90_Backstage/", "Materials/"]
+  },
+  "entries": [
+    {
+      "source": "01_Source_Intuition/BOOK/BOOK_CURRENT_STATUS.md",
+      "role": "public_book_status",
+      "claim_mode": "navigation",
+      "target": "book/index.html"
+    },
+    {
+      "source": "01_Source_Intuition/BOOK/BOOK_ACTIVE_MANIFEST.json",
+      "role": "public_book_status",
+      "claim_mode": "navigation",
+      "target": "book/index.html"
+    },
+    {
+      "source": "Public_Content/SRT_Consciousness_Before_PUBLIC_LONGREAD_CN_2026-07-15.md",
+      "role": "public_release",
+      "claim_mode": "conditional_position_paper",
+      "publication_status": "approved_for_publication",
+      "target": "articles/consciousness-before.html"
+    },
+    {
+      "source": "Governance/SRT_CLAIM_LADDER.md",
+      "role": "public_research_status",
+      "claim_mode": "governance_summary",
+      "target": "research.html"
+    },
+    {
+      "source": "Core/SRT_OPEN_TENSIONS.md",
+      "role": "public_open_tensions",
+      "claim_mode": "open",
+      "target": "evidence.html"
+    },
+    {
+      "source": "AI/AI_POSITIONING_NOTE.md",
+      "role": "public_research_status",
+      "claim_mode": "P3_bridge",
+      "target": "research.html"
+    }
+  ]
+}
