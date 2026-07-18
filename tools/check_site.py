@@ -7,6 +7,16 @@ import json, re, sys
 
 ROOT = Path(__file__).resolve().parent.parent
 BANNED = ["理论主仓库私有维护", "书稿 · RC1 评审中", "五条 P0 原始公理", "序章 + 二十八章"]
+REQUIRED_NAV_TARGETS = [
+    "corelaw.html", "l0.html", "direction.html", "theory.html", "equations.html",
+    "operator.html", "dynamics.html", "map.html", "methodology.html", "l2.html",
+    "individuation.html", "collective.html", "suffering.html", "predictions.html",
+    "evidence.html", "research.html", "domains.html", "quantum.html",
+    "consciousness.html", "ai.html", "philosophy.html", "spirituality.html",
+    "comparison.html", "book/index.html", "book/q05.html", "articles.html",
+    "articles/consciousness-before.html", "value-hiddenness.html", "video.html",
+    "papers.html",
+]
 
 class Page(HTMLParser):
     def __init__(self):
@@ -30,6 +40,13 @@ def main():
             for required in ['<meta name="description"', '<link rel="canonical"', '<meta property="og:title"']:
                 if required not in text: errors.append(f"{rel}: missing {required}")
             if not parser.lang or parser.h1 != 1: errors.append(f"{rel}: lang/h1 invalid ({parser.h1})")
+            nav = re.search(r'<!-- shared:nav -->(.*?)<!-- /shared:nav -->', text, re.S)
+            if not nav:
+                errors.append(f"{rel}: missing shared navigation")
+            else:
+                for target in REQUIRED_NAV_TARGETS:
+                    if not re.search(r'href="(?:\.\./)*' + re.escape(target) + r'"', nav.group(1)):
+                        errors.append(f"{rel}: navigation missing {target}")
         if len(parser.ids) != len(set(parser.ids)): errors.append(f"{rel}: duplicate id")
         for phrase in BANNED:
             if phrase in text: errors.append(f"{rel}: stale phrase {phrase}")

@@ -6,14 +6,31 @@ import re
 ROOT = Path(__file__).resolve().parent.parent
 
 GROUPS = [
-    ("理解 SRT", [("corelaw.html", "七条论纲"), ("theory.html", "P0 / P1 核心"),
-                  ("map.html", "理论地图"), ("methodology.html", "方法与治理")]),
-    ("阅读", [("book/index.html", "《从存在到秩序》"), ("book/q05.html", "公开样章"),
-                ("articles.html", "公共文章"), ("articles/consciousness-before.html", "意识之前")]),
-    ("研究与证据", [("research.html", "研究进展"), ("evidence.html", "证据与未决问题"),
-                    ("predictions.html", "可检验预测"), ("papers.html", "论文")]),
-    ("主题", [("domains.html", "跨域显影"), ("consciousness.html", "意识"), ("ai.html", "AI"),
-                ("philosophy.html", "哲学"), ("comparison.html", "理论对照")]),
+    ("理解 SRT", True, [
+        ("corelaw.html", "七条论纲"), ("l0.html", "L0 形而上学"),
+        ("direction.html", "方向性 ε"), ("theory.html", "P0 / P1 核心"),
+        ("equations.html", "四条主方程"), ("operator.html", "选择算子 Ĝθ"),
+        ("dynamics.html", "动力学与尺度"), ("map.html", "全站理论地图"),
+        ("methodology.html", "方法与治理"),
+    ]),
+    ("推导与检验", True, [
+        ("l2.html", "L₂ 活／死稳定"), ("individuation.html", "个体化"),
+        ("collective.html", "集体选择"), ("suffering.html", "苦难的结构"),
+        ("predictions.html", "判别性预测"), ("evidence.html", "证据与未决问题"),
+        ("research.html", "研究进展"),
+    ]),
+    ("领域与专题", True, [
+        ("domains.html", "跨域显影"), ("quantum.html", "量子测量"),
+        ("consciousness.html", "意识"), ("ai.html", "AI 与主体门槛"),
+        ("philosophy.html", "哲学延伸"), ("spirituality.html", "灵性与宗教语言"),
+        ("comparison.html", "理论对照"),
+    ]),
+    ("书 · 文章 · 视频", True, [
+        ("book/index.html", "《从存在到秩序》"), ("book/q05.html", "公开样章"),
+        ("articles.html", "文章列表"), ("articles/consciousness-before.html", "《意识之前》"),
+        ("value-hiddenness.html", "《价值不是缺席的》"), ("video.html", "视频"),
+        ("papers.html", "论文集"),
+    ]),
 ]
 
 STALE = {
@@ -34,9 +51,10 @@ STALE = {
 
 def nav(prefix: str) -> str:
     chunks = []
-    for label, links in GROUPS:
+    for label, wide, links in GROUPS:
         anchors = "".join(f'<a href="{prefix}{href}">{text}</a>' for href, text in links)
-        chunks.append(f'<div class="navitem"><span class="navlabel">{label}<i class="caret">▾</i></span><div class="navpanel">{anchors}</div></div>')
+        panel_class = "navpanel navpanel-wide" if wide else "navpanel"
+        chunks.append(f'<div class="navitem"><span class="navlabel">{label}<i class="caret">▾</i></span><div class="{panel_class}">{anchors}</div></div>')
     chunks += [f'<a class="navlink" href="{prefix}en.html">EN</a>',
                f'<a class="navlink" href="{prefix}index.html#cta">联系</a>']
     return '<!-- shared:nav --><nav class="topnav">' + "".join(chunks) + '</nav><!-- /shared:nav -->'
