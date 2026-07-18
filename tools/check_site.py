@@ -6,7 +6,7 @@ from urllib.parse import urlsplit, unquote
 import json, re, sys
 
 ROOT = Path(__file__).resolve().parent.parent
-BANNED = ["理论主仓库私有维护", "书稿 · RC1 评审中", "五条 P0 原始公理", "序章 + 二十八章"]
+BANNED = ["理论主仓库私有维护", "书稿 · RC1 评审中", "五条 P0 原始公理", "序章 + 二十八章", "匿名评审中", "major revision 返修中"]
 REQUIRED_NAV_TARGETS = [
     "corelaw.html", "l0.html", "direction.html", "theory.html", "equations.html",
     "operator.html", "dynamics.html", "map.html", "methodology.html", "l2.html",
@@ -66,9 +66,14 @@ def main():
         if not (ROOT/entry["target"]).exists(): errors.append(f"manifest: missing target {entry['target']}")
     evidence=(ROOT/"evidence.html").read_text(encoding="utf-8")
     if evidence.count("data-material-card") != 8: errors.append("evidence.html: expected 8 public material cards")
+    if evidence.count('class="material-detail"') != 8: errors.append("evidence.html: expected 8 on-site material expansions")
+    if "github.com/zyx1st-png/SRT-Pub/blob/" in evidence: errors.append("evidence.html: material card jumps directly to repository")
     if "尚无已接受的证据卡" not in evidence: errors.append("evidence.html: missing draft-evidence boundary")
     for backstage in ["Operations/", "Material Log", "A 类正文", "B 类延后", "C 类"]:
         if backstage in evidence: errors.append(f"evidence.html: backstage phrase leaked: {backstage}")
+    papers=(ROOT/"papers.html").read_text(encoding="utf-8")
+    for current_status in ["Frontiers in Neuroscience", "已接收", "Adaptive Behavior", "ALIFE 2026 未录用", "Landscape of Consciousness", "已收录"]:
+        if current_status not in papers: errors.append(f"papers.html: missing current status {current_status}")
     index=json.loads((ROOT/"assets/search-index.json").read_text())
     indexed={x["u"] for x in index}
     expected=set(pages)-{"404.html"}
