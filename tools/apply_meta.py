@@ -49,7 +49,7 @@ DESC = {
     "video.html": "把 SRT 的核心结构做成可看的影像：三层结构、意识与量子、AI 与社会、意义与价值。脚本就位，逐集发布。",
     "papers.html": "书稿改变问题入口，论文承担形式化与实证接口的证明负载。当前在投与在写的稿件，评审约束下逐篇放开全文。",
     "research.html": "SRT 当前研究进展：区分核心语法、跨域桥接、实证假设和公共表达，不把已建模写成已验证。",
-    "evidence.html": "SRT 证据地图与开放张力：区分收敛、代理、约束和验证，公开展示当前仍未闭合的核心问题。",
+    "evidence.html": "SRT 证据与材料地图：区分收敛、代理、约束和验证，公开展示八张候选研究卡及其边界。当前尚无已接受的证据卡。",
     "articles/consciousness-before.html": "《意识之前》：SRT 对无意识智能、感受意识与反身意识的分层解释，一篇保留可错位置的条件性立场长文。",
     "en.html": "Selective Reality Theory (SRT) asks how possibilities become reality — and why reality hardens, thickens, and starts to look as if it had always been there.",
 }
