@@ -19,7 +19,7 @@ def page_text(html: str) -> str:
     html = re.sub(r"<script.*?</script>", " ", html, flags=re.S)
     html = re.sub(r"<style.*?</style>", " ", html, flags=re.S)
     html = re.sub(r"<svg.*?</svg>", " ", html, flags=re.S)
-    html = re.sub(r'<div class="topbar".*?</nav></div></div>', " ", html, flags=re.S)
+    html = re.sub(r'<div class="topbar".*?</nav>(?:<!-- /shared:nav -->)?</div></div>', " ", html, flags=re.S)
     html = re.sub(r'<div class="guardrails">.*?</div></div>', " ", html, flags=re.S)
     html = re.sub(r"<footer.*?</footer>", " ", html, flags=re.S)
     body = re.search(r"<body.*?</body>", html, flags=re.S)
