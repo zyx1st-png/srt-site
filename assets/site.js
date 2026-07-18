@@ -145,8 +145,11 @@ document.querySelectorAll('.idetail[data-set]').forEach(panel=>{
     ['book/index.html','书稿《从存在到秩序》'],
     ['book/q05.html','公开样章 · 第五章'],
     ['articles.html','文章 ·《活的选择》'],
+    ['articles/consciousness-before.html','意识之前 · 公共立场长文'],
     ['value-hiddenness.html','价值不是缺席的，是被遮蔽的'],
     ['video.html','视频 · 三层结构'],
+    ['research.html','研究进展 · 主张分层'],
+    ['evidence.html','证据与未决问题'],
     ['papers.html','论文集'],
     ['map.html','全站理论地图']
   ];
