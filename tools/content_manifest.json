@@ -71,6 +71,30 @@
       "claim_mode": "submission_status_and_scope",
       "publication_status": "submitted_user_confirmed",
       "target": "papers.html"
+    },
+    {
+      "source": "Core_Law/SRT_L0_Metaphysics.md",
+      "role": "public_release",
+      "claim_mode": "public_visual_summary",
+      "target": "visuals.html"
+    },
+    {
+      "source": "Core/SRT_Core_21_Minimal_Axioms.md",
+      "role": "public_release",
+      "claim_mode": "public_visual_summary",
+      "target": "visuals.html"
+    },
+    {
+      "source": "_SRT_PSI_F_CANONICAL.md",
+      "role": "public_release",
+      "claim_mode": "public_visual_summary",
+      "target": "visuals.html"
+    },
+    {
+      "source": "Governance/SRT_CLAIM_LADDER.md",
+      "role": "public_release",
+      "claim_mode": "public_visual_summary",
+      "target": "visuals.html"
     }
   ]
 }

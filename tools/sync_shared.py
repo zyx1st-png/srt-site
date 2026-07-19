@@ -10,7 +10,7 @@ GROUPS = [
         ("corelaw.html", "七条论纲"), ("l0.html", "L0 形而上学"),
         ("direction.html", "方向性 ε"), ("theory.html", "P0 / P1 核心"),
         ("equations.html", "四条主方程"), ("operator.html", "选择算子 Ĝθ"),
-        ("dynamics.html", "动力学与尺度"), ("map.html", "全站理论地图"),
+        ("dynamics.html", "动力学与尺度"), ("visuals.html", "概念图谱"), ("map.html", "全站理论地图"),
         ("methodology.html", "方法与治理"),
     ]),
     ("推导与检验", True, [
