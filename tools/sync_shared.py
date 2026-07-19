@@ -28,7 +28,7 @@ GROUPS = [
     ("内容与研究", True, [
         ("书稿", [("book/index.html", "《从存在到秩序》"), ("book/q05.html", "公开样章")]),
         ("文章", [("articles.html", "文章列表"), ("articles/consciousness-before.html", "《意识之前》"), ("value-hiddenness.html", "《价值不是缺席的》")]),
-        ("视频", [("video.html", "视频")]),
+        ("视频", [("videos.html", "视频列表"), ("video.html", "Q00详情"), ("video-q01.html", "Q01详情")]),
         ("论文", [("papers.html", "论文集")]),
     ]),
 ]
@@ -70,15 +70,25 @@ def nav(prefix: str) -> str:
                f'<a class="navlink" href="{prefix}index.html#cta">联系</a>']
     return '<!-- shared:nav --><nav class="topnav">' + "".join(chunks) + '</nav><!-- /shared:nav -->'
 
-def main() -> None:
+def sync(check: bool = False) -> int:
     count = 0
+    drift = []
     for path in sorted(ROOT.rglob("*.html")):
         rel = path.relative_to(ROOT).as_posix()
         if rel == "404.html":
             continue
         html = path.read_text(encoding="utf-8")
         prefix = "../" * rel.count("/")
-        html, n = re.subn(r'(?:<!-- shared:nav -->)?<nav class="topnav">.*?</nav>(?:<!-- /shared:nav -->)?', nav(prefix), html, count=1, flags=re.S)
+        canonical = nav(prefix)
+        current = re.search(r'<!-- shared:nav -->.*?<!-- /shared:nav -->', html, re.S)
+        if check:
+            if not current:
+                drift.append(f"{rel}: missing shared navigation")
+            elif current.group(0) != canonical:
+                drift.append(f"{rel}: navigation drift")
+            count += 1
+            continue
+        html, n = re.subn(r'(?:<!-- shared:nav -->)?<nav class="topnav">.*?</nav>(?:<!-- /shared:nav -->)?', canonical, html, count=1, flags=re.S)
         if not n:
             raise SystemExit(f"missing nav: {rel}")
         for old, new in STALE.items():
@@ -88,7 +98,21 @@ def main() -> None:
         html = re.sub(r'<main(?![^>]*\bid=)', '<main id="main"', html, count=1)
         path.write_text(html, encoding="utf-8")
         count += 1
+    if check:
+        if drift:
+            print("\n".join(f"DRIFT {item}" for item in drift))
+            return 1
+        print(f"shared navigation canonical: {count + len(drift)} pages")
+        return 0
     print(f"shared navigation synchronized: {count} pages")
+    return 0
+
+def main() -> None:
+    import argparse
+    parser = argparse.ArgumentParser(description="Synchronize or verify the canonical shared navigation.")
+    parser.add_argument("--check", action="store_true", help="fail if any page differs from the canonical navigation")
+    args = parser.parse_args()
+    raise SystemExit(sync(check=args.check))
 
 if __name__ == "__main__":
     main()
