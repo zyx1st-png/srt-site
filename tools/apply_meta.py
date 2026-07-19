@@ -47,7 +47,7 @@ DESC = {
     "book/q05.html": "公开样章 · 第五章：你以为自己是从菜单里选了一道菜。但菜单是谁印的？“挑选”只是选择的最后一帧。",
     "articles.html": "《活的选择》系列：用 SRT 看清楚，再用不带术语的语言说出来。从日常经验进入，逐篇发布；理论本身不出现在文章里。",
     "value-hiddenness.html": "《活的选择》第一篇：价值不是缺席的，是被遮蔽的——从日常经验进入，不带术语地看清价值在哪里被挡住。",
-    "video.html": "把 SRT 的核心结构做成可看的影像：三层结构、意识与量子、AI 与社会、意义与价值。脚本就位，逐集发布。",
+    "video.html": "《从存在到秩序》视频序章 Q00：从早晨的一杯水开始，追问在对象彼此相关之前，它们如何先成为‘它们’。中文字幕试制版。",
     "papers.html": "SRT 论文与外部收录进度：Frontiers 论文已接收，Costly Selective Closure 已转投 Adaptive Behavior，意识图景获 LOC 收录。",
     "research.html": "SRT 当前研究进展：Frontiers 论文已接收，Costly Selective Closure 在投 Adaptive Behavior，意识图景获 LOC 收录。",
     "evidence.html": "SRT 证据与材料地图：区分收敛、代理、约束和验证，公开展示八张候选研究卡及其边界。当前尚无已接受的证据卡。",

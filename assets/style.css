@@ -253,6 +253,7 @@ details.endnote .en-body p{font-size:14.5px;line-height:2;color:var(--ink-soft);
 .article-item .idx b{font-size:20px;color:var(--stay-deep);line-height:1}
 .article-item .idx span{font-size:10px;color:var(--ink-faint);margin-top:3px}
 .list-note{max-width:860px;margin:8px auto 0;padding:0 32px 56px}
+.video-page-note{margin-top:36px}
 .list-note .callout{background:rgba(255,255,255,.5);border:1px solid var(--line);border-radius:16px;padding:18px 22px;font-size:14px;color:var(--ink-soft);line-height:1.85}
 .list-note .callout b{color:var(--stay-deep)}
 
