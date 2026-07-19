@@ -13,7 +13,7 @@ REQUIRED_NAV_TARGETS = [
     "corelaw.html", "l0.html", "direction.html", "theory.html", "equations.html",
     "operator.html", "dynamics.html", "visuals.html", "map.html", "methodology.html", "l2.html",
     "individuation.html", "collective.html", "suffering.html", "predictions.html",
-    "evidence.html", "research.html", "domains.html", "quantum.html",
+    "evidence.html", "research.html", "domains.html", "domains/library.html", "quantum.html",
     "consciousness.html", "ai.html", "philosophy.html", "spirituality.html",
     "comparison.html", "book/index.html", "book/q05.html", "articles.html",
     "articles/consciousness-before.html", "value-hiddenness.html", "videos.html", "video.html", "video-q01.html",
