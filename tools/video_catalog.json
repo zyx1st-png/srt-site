@@ -51,6 +51,23 @@
       "subtitle_status": "approved",
       "quality_profile": "strict",
       "poster_second": 30
+    },
+    {
+      "id": "Q03",
+      "status": "published",
+      "source_file": "Q03_前对象场.mp4",
+      "route": "video-q03.html",
+      "title": "前对象场",
+      "question": "前对象场：为什么起点不能绝对平坦？",
+      "summary": "从陌生城市里的微小偏好开始，追问前对象场为何既非蓝图也非纯随机，而带有最低非中立性。",
+      "description": "前对象场不是空无，而是受约束、带有张力的可成为性；最低非中立性只给出倾向，不预设轨道或目的地。",
+      "duration": "6:45",
+      "output": "assets/media/q03-preobject-field-zh.mp4",
+      "poster": "assets/media/q03-preobject-field-poster.jpg",
+      "subtitle": "assets/media/q03-preobject-field-zh.srt",
+      "subtitle_status": "approved",
+      "quality_profile": "strict",
+      "poster_second": 35
     }
   ]
 }
