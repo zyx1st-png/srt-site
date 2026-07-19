@@ -21,11 +21,11 @@ GROUPS = [
     ]),
     ("领域与专题", True, [
         ("领域索引", [("domains.html", "跨域显影"), ("domains/library.html", "领域资料库")]),
-        ("AI", [("ai.html", "AI 与主体门槛"), ("domains/library.html#ai", "系统本体与有限性"), ("domains/library.html#ai", "架构与意识接口"), ("domains/library.html#ai", "主体判断的开放问题")]),
-        ("Neuroscience", [("consciousness.html", "意识与神经机制"), ("domains/library.html#neuroscience", "神经选择与意识机制"), ("domains/library.html#neuroscience", "临床与网络指标"), ("domains/library.html#neuroscience", "场、发育与实验")]),
-        ("Physics", [("quantum.html", "量子测量"), ("domains/phys.html", "物理显影"), ("domains/library.html#physics", "量子与宇宙接口"), ("domains/library.html#physics", "成本、可达性与边界")]),
-        ("Philosophy", [("philosophy.html", "哲学延伸"), ("comparison.html", "理论对照"), ("domains/library.html#philosophy", "基础与意识认识论"), ("domains/library.html#philosophy", "伦理、权利与政治"), ("domains/library.html#philosophy", "社会理论与 L₂")]),
-        ("Spirituality", [("spirituality.html", "灵性与宗教语言"), ("domains/library.html#spirituality", "传统与综合"), ("domains/library.html#spirituality", "回返、初心与关切"), ("domains/library.html#spirituality", "实践与共同体")]),
+        ("AI", [("ai.html", "AI 与主体门槛"), ("domains/library.html#ai-system", "系统本体与有限性"), ("domains/library.html#ai-interface", "架构与意识接口"), ("domains/library.html#ai-open", "主体判断的开放问题")]),
+        ("Neuroscience", [("consciousness.html", "意识与神经机制"), ("domains/library.html#neuro-mechanism", "神经选择与意识机制"), ("domains/library.html#neuro-clinical", "临床与网络指标"), ("domains/library.html#neuro-frontier", "场、发育与实验")]),
+        ("Physics", [("quantum.html", "量子测量"), ("domains/phys.html", "物理显影"), ("domains/library.html#physics-quantum", "量子与宇宙接口"), ("domains/library.html#physics-boundary", "成本、可达性与边界")]),
+        ("Philosophy", [("philosophy.html", "哲学延伸"), ("comparison.html", "理论对照"), ("domains/library.html#philosophy-foundation", "基础与意识认识论"), ("domains/library.html#philosophy-ethics", "伦理、权利与政治"), ("domains/library.html#philosophy-social", "社会理论与 L₂")]),
+        ("Spirituality", [("spirituality.html", "灵性与宗教语言"), ("domains/library.html#spirituality-tradition", "传统与综合"), ("domains/library.html#spirituality-return", "回返、初心与关切"), ("domains/library.html#spirituality-practice", "实践与共同体")]),
     ]),
     ("内容与研究", True, [
         ("书稿", [("book/index.html", "《从存在到秩序》"), ("book/q05.html", "公开样章")]),
