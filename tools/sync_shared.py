@@ -20,12 +20,12 @@ GROUPS = [
         ("research.html", "研究进展"),
     ]),
     ("领域与专题", True, [
-        ("领域总览", [("domains.html", "跨域显影"), ("domains/library.html", "领域资料库")]),
-        ("AI", [("ai.html", "AI 与主体门槛"), ("domains/library.html#ai", "架构／意识／本体 Annex")]),
-        ("Neuroscience", [("consciousness.html", "意识与神经机制"), ("domains/library.html#neuroscience", "神经科学／接口 Annex")]),
-        ("Physics", [("quantum.html", "量子测量"), ("domains/phys.html", "物理显影"), ("domains/library.html#physics", "量子／宇宙／QBox Annex")]),
-        ("Philosophy", [("philosophy.html", "哲学延伸"), ("comparison.html", "理论对照"), ("domains/library.html#philosophy", "基础／伦理／政治 Annex")]),
-        ("Spirituality", [("spirituality.html", "灵性与宗教语言"), ("domains/library.html#spirituality", "实践／传统／共同体")]),
+        ("领域索引", [("domains.html", "跨域显影"), ("domains/library.html", "领域资料库")]),
+        ("AI", [("ai.html", "AI 与主体门槛")]),
+        ("Neuroscience", [("consciousness.html", "意识与神经机制")]),
+        ("Physics", [("quantum.html", "量子测量"), ("domains/phys.html", "物理显影")]),
+        ("Philosophy", [("philosophy.html", "哲学延伸"), ("comparison.html", "理论对照")]),
+        ("Spirituality", [("spirituality.html", "灵性与宗教语言")]),
     ]),
     ("内容与研究", True, [
         ("书稿", [("book/index.html", "《从存在到秩序》"), ("book/q05.html", "公开样章")]),
