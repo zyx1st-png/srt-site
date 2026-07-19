@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parent.parent
 BANNED = ["理论主仓库私有维护", "书稿 · RC1 评审中", "五条 P0 原始公理", "序章 + 二十八章", "匿名评审中", "major revision 返修中"]
 REQUIRED_NAV_TARGETS = [
     "corelaw.html", "l0.html", "direction.html", "theory.html", "equations.html",
-    "operator.html", "dynamics.html", "map.html", "methodology.html", "l2.html",
+    "operator.html", "dynamics.html", "visuals.html", "map.html", "methodology.html", "l2.html",
     "individuation.html", "collective.html", "suffering.html", "predictions.html",
     "evidence.html", "research.html", "domains.html", "quantum.html",
     "consciousness.html", "ai.html", "philosophy.html", "spirituality.html",
@@ -74,6 +74,12 @@ def main():
     papers=(ROOT/"papers.html").read_text(encoding="utf-8")
     for current_status in ["Frontiers in Neuroscience", "已接收", "Adaptive Behavior", "ALIFE 2026 未录用", "Landscape of Consciousness", "已收录"]:
         if current_status not in papers: errors.append(f"papers.html: missing current status {current_status}")
+    visuals=(ROOT/"visuals.html").read_text(encoding="utf-8")
+    infographic_assets=["srt-layers.webp", "selection-operator.webp", "payable-friction.webp", "individuation-thresholds.webp", "claim-ladder.webp"]
+    for asset in infographic_assets:
+        if asset not in visuals: errors.append(f"visuals.html: missing infographic {asset}")
+        if not (ROOT/"assets/infographics"/asset).exists(): errors.append(f"visuals.html: missing asset file {asset}")
+    if "图像是公众化转述，不是 canonical 定义源" not in visuals: errors.append("visuals.html: missing public-visual boundary")
     index=json.loads((ROOT/"assets/search-index.json").read_text())
     indexed={x["u"] for x in index}
     expected=set(pages)-{"404.html"}
