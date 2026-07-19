@@ -4,6 +4,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
 import json, re, sys
+from sync_shared import nav as canonical_nav
 
 ROOT = Path(__file__).resolve().parent.parent
 BANNED = ["理论主仓库私有维护", "书稿 · RC1 评审中", "五条 P0 原始公理", "序章 + 二十八章", "匿名评审中", "major revision 返修中"]
@@ -15,7 +16,7 @@ REQUIRED_NAV_TARGETS = [
     "evidence.html", "research.html", "domains.html", "quantum.html",
     "consciousness.html", "ai.html", "philosophy.html", "spirituality.html",
     "comparison.html", "book/index.html", "book/q05.html", "articles.html",
-    "articles/consciousness-before.html", "value-hiddenness.html", "video.html",
+    "articles/consciousness-before.html", "value-hiddenness.html", "videos.html", "video.html", "video-q01.html",
     "papers.html",
 ]
 
@@ -45,6 +46,9 @@ def main():
             if not nav:
                 errors.append(f"{rel}: missing shared navigation")
             else:
+                prefix = "../" * rel.count("/")
+                if nav.group(0) != canonical_nav(prefix):
+                    errors.append(f"{rel}: navigation drift from tools/sync_shared.py")
                 for target in REQUIRED_NAV_TARGETS:
                     if not re.search(r'href="(?:\.\./)*' + re.escape(target) + r'"', nav.group(1)):
                         errors.append(f"{rel}: navigation missing {target}")
