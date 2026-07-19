@@ -113,6 +113,73 @@ document.querySelectorAll('.idetail[data-set]').forEach(panel=>{
   show(panel.dataset.default||nodes[0].dataset.k);
 });
 
+// 领域资料库：领域筛选、主题展开与深链接定位
+(function(){
+  const library=document.querySelector('.domain-library');
+  if(!library)return;
+  const dossiers=[...library.querySelectorAll('.domain-dossier[data-domain]')];
+  const filters=[...library.querySelectorAll('[data-domain-filter]')];
+  const expand=library.querySelector('[data-domain-expand]');
+  const result=library.querySelector('.domain-result');
+  const details=[...library.querySelectorAll('.domain-topic')];
+  if(!dossiers.length||!filters.length)return;
+
+  const labels={all:'全部五个领域',ai:'AI',neuroscience:'神经科学',physics:'物理',philosophy:'哲学',spirituality:'灵性'};
+  let current='all';
+
+  function updateDetail(detail){
+    const action=detail.querySelector('.domain-topic-action');
+    if(action)action.textContent=detail.open?'收起':'展开';
+  }
+
+  function updateExpand(){
+    if(!expand)return;
+    const visible=details.filter(detail=>!detail.closest('.domain-dossier').hidden);
+    const allOpen=visible.length>0&&visible.every(detail=>detail.open);
+    expand.setAttribute('aria-expanded',allOpen?'true':'false');
+    expand.textContent=allOpen?'收起全部主题':'展开全部主题';
+  }
+
+  function showDomain(domain){
+    current=labels[domain]?domain:'all';
+    dossiers.forEach(dossier=>{dossier.hidden=current!=='all'&&dossier.dataset.domain!==current;});
+    filters.forEach(button=>{
+      const active=button.dataset.domainFilter===current;
+      button.classList.toggle('is-active',active);
+      button.setAttribute('aria-pressed',active?'true':'false');
+    });
+    if(result)result.textContent='当前显示'+labels[current];
+    updateExpand();
+  }
+
+  filters.forEach(button=>button.addEventListener('click',()=>showDomain(button.dataset.domainFilter)));
+  details.forEach(detail=>{
+    updateDetail(detail);
+    detail.addEventListener('toggle',()=>{updateDetail(detail);updateExpand();});
+  });
+  if(expand)expand.addEventListener('click',()=>{
+    const visible=details.filter(detail=>!detail.closest('.domain-dossier').hidden);
+    const shouldOpen=!visible.every(detail=>detail.open);
+    visible.forEach(detail=>{detail.open=shouldOpen;});
+    updateExpand();
+  });
+
+  function revealHash(){
+    if(!location.hash)return;
+    const target=document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if(!target||!library.contains(target))return;
+    const dossier=target.closest('.domain-dossier');
+    if(dossier&&current!=='all'&&dossier.hidden)showDomain(dossier.dataset.domain);
+    if(target.matches('details'))target.open=true;
+    const parentDetail=target.closest('details');
+    if(parentDetail)parentDetail.open=true;
+  }
+
+  showDomain('all');
+  revealHash();
+  addEventListener('hashchange',revealHash);
+})();
+
 // ================= 顺读动线：上一页 / 下一页 =================
 (function(){
   const ORDER=[
