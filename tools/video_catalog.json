@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "episodes": [
+    {
+      "id": "Q00",
+      "status": "published",
+      "source_file": "Q00_序章.mp4",
+      "route": "video.html",
+      "title": "序章",
+      "question": "在对象相关之前，它们如何成为“它们”？",
+      "summary": "从早晨拿起一杯水开始，经过稳定、水平因果、选择与沉积，回到 SRT 的第零问。",
+      "description": "从对象如何成为对象开始，追问稳定、选择与沉积如何构成现实。",
+      "duration": "4:09",
+      "output": "assets/media/q00-prologue-zh.mp4",
+      "poster": "assets/media/q00-prologue-poster.jpg",
+      "subtitle": null,
+      "subtitle_status": "approved",
+      "quality_profile": "legacy",
+      "poster_second": 24
+    },
+    {
+      "id": "Q01",
+      "status": "published",
+      "source_file": "Q01_给定性.mp4",
+      "route": "video-q01.html",
+      "title": "给定性",
+      "question": "现实为什么呈现为已经完成？",
+      "summary": "从梦、桌子和北斗七星开始，拆开“当然在那里”的生成条件。",
+      "description": "追问独立实在、公共可读身份与给定感如何把生成来路压缩到背景里。",
+      "duration": "5:25",
+      "output": "assets/media/q01-givenness-zh.mp4",
+      "poster": "assets/media/q01-givenness-poster.jpg",
+      "subtitle": "assets/media/q01-givenness-zh.srt",
+      "subtitle_status": "approved",
+      "quality_profile": "legacy",
+      "poster_second": 30
+    },
+    {
+      "id": "Q02",
+      "status": "published",
+      "source_file": "Q02_对象化.mp4",
+      "route": "video-q02.html",
+      "title": "对象化",
+      "question": "变化为何总被切成静止的东西？",
+      "summary": "从语言、音乐和胚胎发育出发，追问对象化如何把流动切成可握住的现实。",
+      "description": "说明对象是流动被切出并稳定下来的结果；切片让现实可理解，也会遮蔽生成过程。",
+      "duration": "5:43",
+      "output": "assets/media/q02-objectification-zh.mp4",
+      "poster": "assets/media/q02-objectification-poster.jpg",
+      "subtitle": "assets/media/q02-objectification-zh.srt",
+      "subtitle_status": "approved",
+      "quality_profile": "strict",
+      "poster_second": 30
+    }
+  ]
+}

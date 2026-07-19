@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 """Synchronize the site's shared navigation and public status copy."""
 from pathlib import Path
-import re
+import json, re
 
 ROOT = Path(__file__).resolve().parent.parent
+VIDEO_EPISODES = json.loads((ROOT / "tools/video_catalog.json").read_text(encoding="utf-8"))["episodes"]
+VIDEO_LINKS = [("videos.html", "视频列表")] + [
+    (item["route"], f'{item["id"]}详情') for item in VIDEO_EPISODES if item["status"] == "published"
+]
 
 GROUPS = [
     ("理解 SRT", True, [
@@ -30,7 +34,7 @@ GROUPS = [
     ("内容与研究", True, [
         ("书稿", [("book/index.html", "《从存在到秩序》"), ("book/q05.html", "公开样章")]),
         ("文章", [("articles.html", "文章列表"), ("articles/consciousness-before.html", "《意识之前》"), ("value-hiddenness.html", "《价值不是缺席的》")]),
-        ("视频", [("videos.html", "视频列表"), ("video.html", "Q00详情"), ("video-q01.html", "Q01详情"), ("video-q02.html", "Q02详情")]),
+        ("视频", VIDEO_LINKS),
         ("论文", [("papers.html", "论文集")]),
     ]),
 ]
