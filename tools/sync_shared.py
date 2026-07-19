@@ -21,11 +21,11 @@ GROUPS = [
     ]),
     ("领域与专题", True, [
         ("领域索引", [("domains.html", "跨域显影"), ("domains/library.html", "领域资料库")]),
-        ("AI", [("ai.html", "AI 与主体门槛")]),
-        ("Neuroscience", [("consciousness.html", "意识与神经机制")]),
-        ("Physics", [("quantum.html", "量子测量"), ("domains/phys.html", "物理显影")]),
-        ("Philosophy", [("philosophy.html", "哲学延伸"), ("comparison.html", "理论对照")]),
-        ("Spirituality", [("spirituality.html", "灵性与宗教语言")]),
+        ("AI", [("ai.html", "AI 与主体门槛"), ("domains/library.html#ai", "系统本体与有限性"), ("domains/library.html#ai", "架构与意识接口"), ("domains/library.html#ai", "主体判断的开放问题")]),
+        ("Neuroscience", [("consciousness.html", "意识与神经机制"), ("domains/library.html#neuroscience", "神经选择与意识机制"), ("domains/library.html#neuroscience", "临床与网络指标"), ("domains/library.html#neuroscience", "场、发育与实验")]),
+        ("Physics", [("quantum.html", "量子测量"), ("domains/phys.html", "物理显影"), ("domains/library.html#physics", "量子与宇宙接口"), ("domains/library.html#physics", "成本、可达性与边界")]),
+        ("Philosophy", [("philosophy.html", "哲学延伸"), ("comparison.html", "理论对照"), ("domains/library.html#philosophy", "基础与意识认识论"), ("domains/library.html#philosophy", "伦理、权利与政治"), ("domains/library.html#philosophy", "社会理论与 L₂")]),
+        ("Spirituality", [("spirituality.html", "灵性与宗教语言"), ("domains/library.html#spirituality", "传统与综合"), ("domains/library.html#spirituality", "回返、初心与关切"), ("domains/library.html#spirituality", "实践与共同体")]),
     ]),
     ("内容与研究", True, [
         ("书稿", [("book/index.html", "《从存在到秩序》"), ("book/q05.html", "公开样章")]),
@@ -51,6 +51,28 @@ STALE = {
     "Prologue plus twenty-eight chapters; RC1 under review. One sample chapter is public.": "The current manuscript spans Q00–Q28, two inserted chapters, and inter-act bridges. One sample chapter is public.",
     "序章加二十八章已成稿，RC1 冻结评审中。":
         "当前主稿为 Q00–Q28，含 Q04b、Q15b 与幕间桥段；五幕成立，正在进行生成哲学战略总装。",
+    "站点内容为公众导览 · 定义与版本以 SRT-Pub 为准 · 2026-07-19 同步":
+        "站点内容为公众导览 · 2026-07-19 同步",
+    "Public guide · definitions and versions live in SRT-Pub · synced 2026-07-19":
+        "Public guide · synced 2026-07-19",
+    "仓库中的": "已有材料中的",
+    "仓库里": "已有材料里",
+    "在仓库": "在完整材料中",
+    "SRT-Pub 中": "已有材料中",
+    "仓库专门文件的领域": "需要另行处理",
+    "仓库用 L₂ 表示": "这里用 L₂ 表示",
+    "仓库提出过一个候选映射": "一个候选映射是",
+    "仓库把最小意识窗口写成": "当前讨论把最小意识窗口写成",
+    "仓库 canonical 文件": "canonical 边界",
+    "在公开 SRT-Pub 主仓库维护": "",
+    "公开 SRT-Pub 主仓库维护": "",
+    "完整对照（含各框架的引文与操作化判定条件）在完整材料中 <code>Philosophy/</code> 的 Comparison 系列在公开 SRT-Pub 主仓库维护。": "完整对照会继续沿着各框架的引文与操作化判定条件更新。",
+    "完整灵性材料（含实践、冥想神经、社群）在完整材料中 <code>Spirituality/</code> 在公开 SRT-Pub 主仓库维护，受其 claim-status 护栏约束。": "灵性材料（含实践、冥想神经、社群）受 claim-status 护栏约束。",
+    "owner 机制": "主线机制",
+    "clinical proxy": "临床代理",
+    "hardening draft": "补强讨论",
+    "Annex 外部理论比较": "接口与外部理论比较",
+    "SRT-Pub 当前主稿": "当前主稿",
 }
 
 def nav(prefix: str) -> str:
