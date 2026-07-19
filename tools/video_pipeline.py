@@ -206,7 +206,7 @@ def validate_raw_source(source: Path) -> str | None:
 
 def ensure_detail_page(item: dict) -> None:
     route = ROOT / item["route"]
-    if route.exists():
+    if route.exists() and not item.get("refresh_detail"):
         return
     template = (ROOT / "video-q02.html").read_text(encoding="utf-8")
     episode = html_lib.escape(item["id"])
@@ -239,7 +239,7 @@ def ensure_detail_page(item: dict) -> None:
             '视频是面向公众的阐释，不是 SRT 的 canonical 定义源。\n</div></div>')
     template = re.sub(r'<div class="list-note video-page-note"><div class="callout">.*?</div></div>', note, template, count=1, flags=re.S)
     route.write_text(template, encoding="utf-8")
-    print(f"created detail page: {route}")
+    print(f"generated detail page: {route}")
 
 
 def publish(args) -> None:
