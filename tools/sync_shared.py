@@ -25,11 +25,11 @@ GROUPS = [
         ("philosophy.html", "哲学延伸"), ("spirituality.html", "灵性与宗教语言"),
         ("comparison.html", "理论对照"),
     ]),
-    ("书 · 文章 · 视频", True, [
-        ("book/index.html", "《从存在到秩序》"), ("book/q05.html", "公开样章"),
-        ("articles.html", "文章列表"), ("articles/consciousness-before.html", "《意识之前》"),
-        ("value-hiddenness.html", "《价值不是缺席的》"), ("video.html", "视频"),
-        ("papers.html", "论文集"),
+    ("内容与研究", True, [
+        ("书稿", [("book/index.html", "《从存在到秩序》"), ("book/q05.html", "公开样章")]),
+        ("文章", [("articles.html", "文章列表"), ("articles/consciousness-before.html", "《意识之前》"), ("value-hiddenness.html", "《价值不是缺席的》")]),
+        ("视频", [("video.html", "视频")]),
+        ("论文", [("papers.html", "论文集")]),
     ]),
 ]
 
@@ -54,8 +54,17 @@ STALE = {
 def nav(prefix: str) -> str:
     chunks = []
     for label, wide, links in GROUPS:
-        anchors = "".join(f'<a href="{prefix}{href}">{text}</a>' for href, text in links)
-        panel_class = "navpanel navpanel-wide" if wide else "navpanel"
+        organized = links and isinstance(links[0][1], list)
+        if organized:
+            anchors = "".join(
+                f'<div class="navgroup"><span class="navgroup-title">{group}</span>'
+                + "".join(f'<a href="{prefix}{href}">{text}</a>' for href, text in group_links)
+                + "</div>"
+                for group, group_links in links
+            )
+        else:
+            anchors = "".join(f'<a href="{prefix}{href}">{text}</a>' for href, text in links)
+        panel_class = "navpanel navpanel-wide navpanel-organized" if organized else ("navpanel navpanel-wide" if wide else "navpanel")
         chunks.append(f'<div class="navitem"><span class="navlabel">{label}<i class="caret">▾</i></span><div class="{panel_class}">{anchors}</div></div>')
     chunks += [f'<a class="navlink" href="{prefix}en.html">EN</a>',
                f'<a class="navlink" href="{prefix}index.html#cta">联系</a>']
