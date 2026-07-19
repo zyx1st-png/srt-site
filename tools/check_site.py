@@ -7,6 +7,7 @@ import json, re, sys
 
 ROOT = Path(__file__).resolve().parent.parent
 BANNED = ["理论主仓库私有维护", "书稿 · RC1 评审中", "五条 P0 原始公理", "序章 + 二十八章", "匿名评审中", "major revision 返修中"]
+PUBLIC_BACKSTAGE = ["播放器不再加载", "避免重复显示", "直接烧录进视频画面", "字幕已烧录进画面", "播放器字幕轨道"]
 REQUIRED_NAV_TARGETS = [
     "corelaw.html", "l0.html", "direction.html", "theory.html", "equations.html",
     "operator.html", "dynamics.html", "visuals.html", "map.html", "methodology.html", "l2.html",
@@ -50,6 +51,8 @@ def main():
         if len(parser.ids) != len(set(parser.ids)): errors.append(f"{rel}: duplicate id")
         for phrase in BANNED:
             if phrase in text: errors.append(f"{rel}: stale phrase {phrase}")
+        for phrase in PUBLIC_BACKSTAGE:
+            if phrase in text: errors.append(f"{rel}: public backstage phrase leaked: {phrase}")
         for href in parser.links:
             u=urlsplit(href)
             if u.scheme or href.startswith(("#", "mailto:", "javascript:")): continue
