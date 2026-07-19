@@ -230,6 +230,8 @@ details.endnote .en-body p{font-size:14.5px;line-height:2;color:var(--ink-soft);
 .list-hero h1{font-size:clamp(30px,4.4vw,46px);margin:0 0 12px}
 .list-hero p{max-width:640px;color:#C9C4B2;font-size:16.5px;line-height:1.9;margin:0}
 .list-hero p b{color:#E8C9A0}
+.list-hero .backlink{display:inline-block;margin-bottom:18px;color:#B8C9C0;font-size:13px;text-decoration:none;border-bottom:1px solid rgba(184,201,192,.45);padding-bottom:3px}
+.list-hero .backlink:hover{color:var(--paper);border-color:var(--paper)}
 .cadence{margin-top:22px;display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;color:#9FAF9F;border:1px solid rgba(159,175,159,.3);border-radius:999px;padding:6px 14px}
 .cadence .pulse{width:8px;height:8px;border-radius:50%;background:#7FBFB0;box-shadow:0 0 0 0 rgba(127,191,176,.6);animation:pulse 2.4s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(127,191,176,.5)}70%{box-shadow:0 0 0 8px rgba(127,191,176,0)}100%{box-shadow:0 0 0 0 rgba(127,191,176,0)}}
