@@ -30,7 +30,7 @@ GROUPS = [
     ("内容与研究", True, [
         ("书稿", [("book/index.html", "《从存在到秩序》"), ("book/q05.html", "公开样章")]),
         ("文章", [("articles.html", "文章列表"), ("articles/consciousness-before.html", "《意识之前》"), ("value-hiddenness.html", "《价值不是缺席的》")]),
-        ("视频", [("videos.html", "视频列表"), ("video.html", "Q00详情"), ("video-q01.html", "Q01详情")]),
+        ("视频", [("videos.html", "视频列表"), ("video.html", "Q00详情"), ("video-q01.html", "Q01详情"), ("video-q02.html", "Q02详情")]),
         ("论文", [("papers.html", "论文集")]),
     ]),
 ]

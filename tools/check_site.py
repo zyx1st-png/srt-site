@@ -16,7 +16,7 @@ REQUIRED_NAV_TARGETS = [
     "evidence.html", "research.html", "domains.html", "domains/library.html", "quantum.html",
     "consciousness.html", "ai.html", "philosophy.html", "spirituality.html",
     "comparison.html", "book/index.html", "book/q05.html", "articles.html",
-    "articles/consciousness-before.html", "value-hiddenness.html", "videos.html", "video.html", "video-q01.html",
+    "articles/consciousness-before.html", "value-hiddenness.html", "videos.html", "video.html", "video-q01.html", "video-q02.html",
     "papers.html",
 ]
 
