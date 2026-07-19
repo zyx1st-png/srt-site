@@ -108,7 +108,7 @@
     },
     {
       "id": "Q05",
-      "status": "draft",
+      "status": "published",
       "source_file": "Q05_选择不是挑选.mp4",
       "route": "video-q05.html",
       "title": "选择不是挑选",
@@ -119,7 +119,7 @@
       "output": "assets/media/q05-choice-not-picking-zh.mp4",
       "poster": "assets/media/q05-choice-not-picking-poster.jpg",
       "subtitle": "assets/media/q05-choice-not-picking-zh.srt",
-      "subtitle_status": "draft",
+      "subtitle_status": "approved",
       "quality_profile": "strict",
       "poster_second": 30,
       "refresh_detail": true

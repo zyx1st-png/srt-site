@@ -169,10 +169,17 @@ def render_one(args, item: dict) -> None:
     temporary.replace(output)
     run([str(ffmpeg), "-y", "-ss", str(item.get("poster_second", 30)), "-i", str(source),
          "-frames:v", "1", "-q:v", "2", str(poster)])
+    duration_probe = subprocess.run(
+        [str(ffprobe), "-v", "error", "-show_entries", "format=duration",
+         "-of", "default=noprint_wrappers=1:nokey=1", str(output)],
+        text=True, capture_output=True, check=True,
+    )
+    duration = float(duration_probe.stdout.strip())
     qa = WORK / item["id"] / "qa"
     qa.mkdir(parents=True, exist_ok=True)
     for label, second in (("start", 15), ("middle", 150), ("end", 300)):
-        run([str(ffmpeg), "-y", "-ss", str(second), "-i", str(output), "-frames:v", "1",
+        sample_second = min(second, max(1, int(duration) - 5))
+        run([str(ffmpeg), "-y", "-ss", str(sample_second), "-i", str(output), "-frames:v", "1",
              str(qa / f"{label}.jpg")])
     record = {"episode": item["id"], "source_sha256": sha256(source),
               "subtitle_sha256": sha256(subtitle) if subtitle else None,
