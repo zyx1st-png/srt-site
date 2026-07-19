@@ -44,6 +44,7 @@ a{color:inherit}
 .navitem:hover>.navlabel .caret{transform:rotate(180deg)}
 .navpanel{position:absolute;top:calc(100% + 8px);right:0;min-width:230px;background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:0 16px 40px rgba(34,38,31,.14);padding:8px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.16s ease;z-index:60;display:grid;gap:2px}
 .navpanel-wide{min-width:440px;grid-template-columns:1fr 1fr}
+.navpanel-organized{padding:12px;gap:14px 16px}.navgroup{display:grid;align-content:start;gap:2px}.navgroup-title{padding:3px 13px 5px;color:var(--ink-faint);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--line);margin-bottom:2px}
 .navitem:hover>.navpanel,.navitem.open>.navpanel,.navitem:focus-within>.navpanel{opacity:1;visibility:visible;transform:translateY(0)}
 .navitem.open>.navlabel .caret,.navitem:focus-within>.navlabel .caret{transform:rotate(180deg)}
 .navlabel{cursor:pointer}
@@ -471,6 +472,8 @@ details.endnote .en-body p{font-size:14.5px;line-height:2;color:var(--ink-soft);
   .navlabel{width:100%;justify-content:space-between;background:var(--paper2);font-weight:600;color:var(--ink)}
   .navpanel{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;background:transparent;min-width:0;padding:2px 0 8px 14px;display:grid;gap:0}
   .navpanel-wide{grid-template-columns:1fr}
+  .navpanel-organized{gap:8px;padding:6px 0 10px 0}
+  .navgroup-title{padding-left:13px}
   .navlink{padding:11px 13px;background:var(--paper2)}
   .hero{padding:76px 0 56px}
   .grid3,.notcards{grid-template-columns:1fr}
