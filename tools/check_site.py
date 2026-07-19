@@ -7,6 +7,7 @@ import json, re, sys
 from sync_shared import nav as canonical_nav
 
 ROOT = Path(__file__).resolve().parent.parent
+VIDEO_CATALOG = json.loads((ROOT / "tools/video_catalog.json").read_text(encoding="utf-8"))["episodes"]
 BANNED = ["理论主仓库私有维护", "书稿 · RC1 评审中", "五条 P0 原始公理", "序章 + 二十八章", "匿名评审中", "major revision 返修中"]
 PUBLIC_BACKSTAGE = ["播放器不再加载", "避免重复显示", "直接烧录进视频画面", "字幕已烧录进画面", "播放器字幕轨道"]
 REQUIRED_NAV_TARGETS = [
@@ -16,9 +17,9 @@ REQUIRED_NAV_TARGETS = [
     "evidence.html", "research.html", "domains.html", "domains/library.html", "quantum.html",
     "consciousness.html", "ai.html", "philosophy.html", "spirituality.html",
     "comparison.html", "book/index.html", "book/q05.html", "articles.html",
-    "articles/consciousness-before.html", "value-hiddenness.html", "videos.html", "video.html", "video-q01.html", "video-q02.html",
+    "articles/consciousness-before.html", "value-hiddenness.html", "videos.html",
     "papers.html",
-]
+] + [x["route"] for x in VIDEO_CATALOG if x["status"] == "published"]
 
 class Page(HTMLParser):
     def __init__(self):
@@ -91,6 +92,16 @@ def main():
     indexed={x["u"] for x in index}
     expected=set(pages)-{"404.html"}
     if indexed != expected: errors.append(f"search index drift: missing={sorted(expected-indexed)} extra={sorted(indexed-expected)}")
+    videos=(ROOT/"videos.html").read_text(encoding="utf-8")
+    for episode in VIDEO_CATALOG:
+        if episode["status"] != "published": continue
+        for key in ["route", "output", "poster"]:
+            if not (ROOT/episode[key]).exists(): errors.append(f"video catalog: {episode['id']} missing {key} {episode[key]}")
+        if episode["route"] not in videos: errors.append(f"videos.html: missing catalog episode {episode['id']}")
+        if episode.get("subtitle"):
+            from video_pipeline import audit_srt
+            errors.extend(f"video catalog: {episode['id']} {e}" for e in audit_srt(
+                ROOT/episode["subtitle"], strict=episode.get("quality_profile", "strict") == "strict"))
     if errors:
         print("\n".join(f"ERROR {e}" for e in errors)); return 1
     print(f"OK: {len(pages)} HTML pages, links/meta/claims/manifest/search index aligned")

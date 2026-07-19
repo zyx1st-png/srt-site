@@ -1,0 +1,4 @@
+tools/video_work/
+assets/media/*.building.mp4
+__pycache__/
+*.pyc
