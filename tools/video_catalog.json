@@ -144,7 +144,7 @@
     },
     {
       "id": "Q07",
-      "status": "draft",
+      "status": "published",
       "source_file": "Q07_锚定.mp4",
       "route": "video-q07.html",
       "title": "锚定",
@@ -155,7 +155,7 @@
       "output": "assets/media/q07-anchoring-zh.mp4",
       "poster": "assets/media/q07-anchoring-poster.jpg",
       "subtitle": "assets/media/q07-anchoring-zh.srt",
-      "subtitle_status": "draft",
+      "subtitle_status": "approved",
       "quality_profile": "strict",
       "poster_second": 30,
       "refresh_detail": true
