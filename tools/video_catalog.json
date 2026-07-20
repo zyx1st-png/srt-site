@@ -162,7 +162,7 @@
     },
     {
       "id": "Q08",
-      "status": "draft",
+      "status": "published",
       "source_file": "Q08_不可逆性.mp4",
       "route": "video-q08.html",
       "title": "不可逆性",
@@ -173,7 +173,7 @@
       "output": "assets/media/q08-irreversibility-zh.mp4",
       "poster": "assets/media/q08-irreversibility-poster.jpg",
       "subtitle": "assets/media/q08-irreversibility-zh.srt",
-      "subtitle_status": "draft",
+      "subtitle_status": "approved",
       "quality_profile": "strict",
       "poster_second": 30,
       "refresh_detail": true
