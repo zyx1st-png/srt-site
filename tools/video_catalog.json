@@ -126,7 +126,7 @@
     },
     {
       "id": "Q06",
-      "status": "draft",
+      "status": "published",
       "source_file": "Q06_排除与阴影.mp4",
       "route": "video-q06.html",
       "title": "排除与阴影",
@@ -137,7 +137,7 @@
       "output": "assets/media/q06-exclusion-shadow-zh.mp4",
       "poster": "assets/media/q06-exclusion-shadow-poster.jpg",
       "subtitle": "assets/media/q06-exclusion-shadow-zh.srt",
-      "subtitle_status": "draft",
+      "subtitle_status": "approved",
       "quality_profile": "strict",
       "poster_second": 30,
       "refresh_detail": true
