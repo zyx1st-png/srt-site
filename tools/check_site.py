@@ -19,7 +19,7 @@ REQUIRED_NAV_TARGETS = [
     "comparison.html", "book/index.html", "book/q05.html", "articles.html",
     "articles/consciousness-before.html", "value-hiddenness.html", "videos.html",
     "papers.html",
-] + [x["route"] for x in VIDEO_CATALOG if x["status"] == "published"]
+]
 
 class Page(HTMLParser):
     def __init__(self):

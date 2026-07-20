@@ -4,10 +4,7 @@ from pathlib import Path
 import json, re
 
 ROOT = Path(__file__).resolve().parent.parent
-VIDEO_EPISODES = json.loads((ROOT / "tools/video_catalog.json").read_text(encoding="utf-8"))["episodes"]
-VIDEO_LINKS = [("videos.html", "视频列表")] + [
-    (item["route"], f'{item["id"]}详情') for item in VIDEO_EPISODES if item["status"] == "published"
-]
+VIDEO_LINKS = [("videos.html", "视频列表")]
 
 GROUPS = [
     ("理解 SRT", True, [
