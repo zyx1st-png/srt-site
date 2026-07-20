@@ -180,7 +180,7 @@
     },
     {
       "id": "Q09",
-      "status": "draft",
+      "status": "published",
       "source_file": "Q09_现实厚度.mp4",
       "route": "video-q09.html",
       "title": "现实厚度",
@@ -191,7 +191,7 @@
       "output": "assets/media/q09-reality-thickness-zh.mp4",
       "poster": "assets/media/q09-reality-thickness-poster.jpg",
       "subtitle": "assets/media/q09-reality-thickness-zh.srt",
-      "subtitle_status": "draft",
+      "subtitle_status": "approved",
       "quality_profile": "strict",
       "poster_second": 30,
       "refresh_detail": true
