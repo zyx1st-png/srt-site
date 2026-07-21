@@ -216,7 +216,7 @@
     },
     {
       "id": "Q11",
-      "status": "draft",
+      "status": "published",
       "source_file": "Q11_被选择.mp4",
       "route": "video-q11.html",
       "title": "被选择",
@@ -227,7 +227,7 @@
       "output": "assets/media/q11-being-chosen-zh.mp4",
       "poster": "assets/media/q11-being-chosen-poster.jpg",
       "subtitle": "assets/media/q11-being-chosen-zh.srt",
-      "subtitle_status": "draft",
+      "subtitle_status": "approved",
       "quality_profile": "strict",
       "poster_second": 30,
       "refresh_detail": true
