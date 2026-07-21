@@ -198,7 +198,7 @@
     },
     {
       "id": "Q10",
-      "status": "draft",
+      "status": "published",
       "source_file": "Q10_秩序背景化.mp4",
       "route": "video-q10.html",
       "title": "秩序背景化",
@@ -209,7 +209,7 @@
       "output": "assets/media/q10-order-backgrounding-zh.mp4",
       "poster": "assets/media/q10-order-backgrounding-poster.jpg",
       "subtitle": "assets/media/q10-order-backgrounding-zh.srt",
-      "subtitle_status": "draft",
+      "subtitle_status": "approved",
       "quality_profile": "strict",
       "poster_second": 30,
       "refresh_detail": true
