@@ -234,7 +234,7 @@
     },
     {
       "id": "Q12",
-      "status": "draft",
+      "status": "published",
       "source_file": "Q12_攸关.mp4",
       "route": "video-q12.html",
       "title": "攸关",
@@ -245,7 +245,7 @@
       "output": "assets/media/q12-mattering-zh.mp4",
       "poster": "assets/media/q12-mattering-poster.jpg",
       "subtitle": "assets/media/q12-mattering-zh.srt",
-      "subtitle_status": "draft",
+      "subtitle_status": "approved",
       "quality_profile": "strict",
       "poster_second": 30,
       "refresh_detail": true
