@@ -270,7 +270,7 @@
     },
     {
       "id": "Q14",
-      "status": "draft",
+      "status": "published",
       "source_file": "Q14_价值不是偏好.mp4",
       "route": "video-q14.html",
       "title": "价值不是偏好",
@@ -281,7 +281,7 @@
       "output": "assets/media/q14-value-not-preference-zh.mp4",
       "poster": "assets/media/q14-value-not-preference-poster.jpg",
       "subtitle": "assets/media/q14-value-not-preference-zh.srt",
-      "subtitle_status": "draft",
+      "subtitle_status": "approved",
       "quality_profile": "strict",
       "poster_second": 30,
       "refresh_detail": true
