@@ -252,7 +252,7 @@
     },
     {
       "id": "Q13",
-      "status": "draft",
+      "status": "published",
       "source_file": "Q13_在乎.mp4",
       "route": "video-q13.html",
       "title": "在乎",
@@ -263,7 +263,7 @@
       "output": "assets/media/q13-caring-zh.mp4",
       "poster": "assets/media/q13-caring-poster.jpg",
       "subtitle": "assets/media/q13-caring-zh.srt",
-      "subtitle_status": "draft",
+      "subtitle_status": "approved",
       "quality_profile": "strict",
       "poster_second": 30,
       "refresh_detail": true
